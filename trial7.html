@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Quicksand", sans-serif;
+        }
+
+        .con {
+            background-color: #060606;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .date {
+            margin: auto;
+            background-color: #0f0f0f;
+            height: 300px;
+            color: aliceblue;
+            text-align: center;
+            font-size: 300px;
+            width: 6vw;
+            height: 12vh;
+        }
+
+        .date:hover {
+            background-color: #858585;
+            border: 10px solid black;
+        }
+
+        #but {
+            padding: 100px;
+            background-color: transparent;
+            border: none;
+        }
+
+        .popup {
+            height: 95vh;
+            width: 30vw;
+            background-color: #fff;
+            border: 20px solid black;
+            border-radius: 10px;
+            position: relative;
+            right: 900px;
+            display: none;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .back {
+            background-color: black;
+            height: 100px;
+            width: 100px;
+            position: relative;
+            float: right;
+            color: #fff;
+            padding: 45px;
+            font-size: 100px;
+        }
+
+        #back {
+            position: absolute;
+            left: 1530px;
+            top: 0;
+        }
+
+        .we,
+        .wid {
+            color: #0f0f0f;
+            font-size: 100px;
+            background-color: cyan;
+            width: 100%;
+            height: 6vh;
+        }
+
+        .text {
+            height: 15vh;
+            font-size: 100px;
+        }
+
+        textarea {
+            background-color: transparent;
+            font-size: 75px;
+            width: 30vw;
+            height: 356px;
+            border: 5px solid black;
+        }
+
+        input {
+            background-color: transparent;
+            font-size: 70px;
+            border: 5px solid black;
+            width: 30vw;
+            height: 110px;
+
+        }
+
+        #add,
+        #addd {
+            background-color: #57ff41;
+            color: #0f0f0f;
+            border: 10px solid black;
+            border-radius: 30px;
+            font-size: 80px;
+            text-align: center;
+            padding: 30px;
+            width: 597px;
+            height: 5vh;
+            margin-top: -4vh;
+        }
+
+        #adddd {
+            background-color: #57ff41;
+            color: #0f0f0f;
+            border: 10px solid black;
+            border-radius: 30px;
+            font-size: 80px;
+            text-align: center;
+            padding: 30px;
+            width: 597px;
+            height: 5vh;
+            margin-top: -4vh;
+        }
+
+        #can {
+
+            background-color: #57ff41;
+            color: #0f0f0f;
+            border: 10px solid black;
+            border-radius: 30px;
+            font-size: 80px;
+            text-align: center;
+            padding: 30px;
+            width: 597px;
+            height: 5vh;
+            margin-top: -6vh;
+            margin-left: 9vw;
+        }
+
+        .mor {
+            background-color: #b8cff6;
+            width: 1730px;
+            height: 20vh;
+        }
+
+        .after {
+            background-color: #78a9fc;
+            width: 1730px;
+            height: 20vh;
+
+        }
+
+        .night {
+            background-color: #2c74f0;
+            width: 1730px;
+            height: 20vh;
+        }
+
+        .m,
+        .a,
+        .n {
+            font-size: 90px;
+        }
+
+        .table {
+            background-color: #f6ff8e;
+            height: 29vh;
+            width: 26vw;
+            font-size: 90px;
+            border: 5px solid black;
+
+        }
+
+        #mm,
+        #nn,
+        #aa {
+            border: 10px solid black;
+            width: 30vw;
+            height: 9vh;
+        }
+
+        .mdays {
+            /* background-color: #767676; */
+            background-color: #85FFBD;
+            background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+
+            height: 60vh;
+            width: 74vw;
+            display: flex;
+            flex-wrap: wrap;
+            /* justify-content:space-between;
+    align-items: center; */
+            gap: 10px;
+            margin-left: 7vw;
+            padding: 1vw;
+            align-items: baseline;
+
+        }
+
+        .weeks {
+            background-color: #767676;
+            background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+            height: 9vh;
+            width: 74vw;
+            display: flex;
+            flex-wrap: wrap;
+            /* justify-content:space-between;
+    align-items: center; */
+            gap: 10px;
+            margin-left: 7vw;
+            padding: 1vw;
+            align-items: baseline;
+        }
+
+        .d {
+            background-color: #73ff5d;
+            height: 6vh;
+            width: 7vw;
+            font-size: 90px;
+            border: 10px solid black;
+            /* margin-right: 2vh; */
+            margin-left: 4vh;
+        }
+
+        .dd {
+            background-color: #73ff5d;
+            height: 6vh;
+            width: 7vw;
+            font-size: 125px;
+            border: 10px solid black;
+            /* margin-right: 2vh; */
+            margin-left: 4vh;
+            font-weight: 500;
+        }
+        .ddd
+        {
+            background-color: #bdfab4;
+            height: 6vh;
+            width: 7vw;
+            font-size: 90px;
+            border: 10px solid black;
+            /* margin-right: 2vh; */
+            margin-left: 4vh;
+          
+        }
+
+        .full {
+            background-color: #fb4545;
+            height: 6vh;
+            width: 7vw;
+            font-size: 90px;
+            border: 10px solid black;
+            /* margin-right: 3vh; */
+            margin-left: 4vh;
+        }
+
+        .midd {
+            background-color: #fcbbbb;
+            height: 6vh;
+            width: 7vw;
+            font-size: 90px;
+            border: 10px solid black;
+            /* margin-right: 3vh; */
+            margin-left: 4vh;
+
+        }
+
+        .display {
+            display: flex;
+        }
+
+        .delete {
+            height: 29vh;
+            width: 4vw;
+        }
+
+        .dm,
+        .dn,
+        .da {
+            font-size: 85px;
+            background-color: #fc2e4a;
+            color: white;
+            border: 10px solid black;
+            width: 4vw;
+            height: 9vh;
+            text-align: center;
+            padding-top: 4px;
+        }
+
+        .calender {
+            background-color: #040303;
+            height: 95vh;
+            width: 90vw;
+        }
+
+        .month {
+            height: 15vh;
+            width: 70vw;
+            /* background-color: #2cffff; */
+            background-image: linear-gradient(to right top, #86fff7, #2ae8fe, #00cfff, #00b2ff, #0091ff);
+            margin-left: 7vw;
+            margin-top: 2vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 3vw;
+        }
+
+        .month i {
+            cursor: pointer;
+            font-size: 4vh;
+
+        }
+        #left
+        {
+            cursor: pointer;
+            font-size: 4vh;
+        }
+        #right
+        {
+            cursor: pointer;
+            font-size: 4vh;
+        }
+
+
+        .month h1 {
+            font-size: 5vh;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1vw;
+            margin-bottom: 70px;
+            margin-left: 140px;
+        }
+
+        .month p {
+            font-size: 3vh;
+        }
+    </style>
+
+</head>
+
+<!-- <body onload="loadd()"> -->
+
+<body>
+    <div class="con">
+        <!-- <button id="but">
+            <div class="date" onclick="poppp()">1</div>
+        </button>
+        <button id="but">
+            <div class="date" onclick="poppp()">2</div>
+        </button>
+        <button id="but">
+            <div class="date" onclick="poppp()">3</div>
+        </button> -->
+        <div class="calender">
+            <div class="month">
+                <i class="fas fa-angle-left prev" id="left"></i>
+                <div class="dateee">
+                    <h1></h1>
+                    <p></p>
+                </div>
+                <i class="fas fa-angle-right next" id="right"></i>
+            </div>
+            <div class="weeks">
+                <div class="dd">Sun</div>
+                <div class="dd">Mon</div>
+                <div class="dd">Tue</div>
+                <div class="dd">Wed</div>
+                <div class="dd">Thu</div>
+                <div class="dd">Fri</div>
+                <div class="dd">Sat</div>
+            </div>
+            <div class="mdays">
+            </div>
+        </div>
+
+        <!-- printing the dates -->
+
+
+
+        <div class="popup">
+            <div class="flex">
+                <div class="we">Write Events</div>
+                <div class="wid"></div>
+                <button id="back" onclick="cancell()">
+                    <div class="back">X</div>
+                </button><br>
+            </div>
+            <div class="mor">
+                <div class="m">Morning</div>
+                <div class="text">
+                    <!-- <input id="m_name" type="text" placeholder="Name :"> -->
+                    <textarea id="m_ta" rows="10" placeholder="Descripton :"></textarea>
+                </div>
+                <button id="add" onclick="add_mor()">Add</button>
+            </div>
+            <div class="after">
+                <div class="a">Afternoon</div>
+                <div class="text">
+                    <!-- <input id="a_name" type="text" placeholder="Name :"> -->
+                    <textarea id="a_ta" rows="10" placeholder="Descripton :"></textarea>
+                </div>
+                <button id="addd" onclick="add_after()">Add</button>
+            </div>
+            <div class="night">
+                <div class="n">Night</div>
+                <div class="text">
+                    <!-- <input id="n_name" type="text" placeholder="Name :"> -->
+                    <textarea id="n_ta" rows="10" placeholder="Descripton :"></textarea>
+                </div>
+                <button id="adddd" onclick="add_night()">Add</button>
+                <!-- <br><br><br><br><br><br><br> -->
+                <button id="can" onclick="can()">Cancel</button>
+            </div>
+            <div class="display">
+                <div class="table">
+                    <div id="mm"></div>
+                    <div id="aa"></div>
+                    <div id="nn"></div>
+                </div>
+                <div class="delete">
+                    <div class="dm" onclick="delete_m()">Delete</div>
+                    <div class="da" onclick="delete_a()">Delete</div>
+                    <div class="dn" onclick="delete_n()">Delete</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        
+        const date = new Date();
+        let day = date.getDay();
+        let year = date.getFullYear();
+        let mdays = document.querySelector('.mdays');
+        date.setDate(1);
+        let month = date.getMonth();
+        // date.setMonth(9);
+        //  console.log(date.getMonth());
+        //  console.log(month);
+        // console.log(date.setMonth(10))
+        let firstDayIndex = date.getDay();
+        console.log(firstDayIndex);
+        let prevLastDay= new Date(date.getFullYear(), date.getMonth(),0).getDate();
+
+
+        let lastdate=new Date(date.getFullYear(),date.getMonth()+1,0).getDate();
+        
+
+
+        const months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+        ];
+
+
+       
+        document.querySelector('.month h1').innerHTML = months[date.getMonth()]
+        document.querySelector('.month p').innerHTML = date.toDateString();
+
+        let str = "";
+        // let pstr="";
+        for(let x=firstDayIndex;x>0;x--)
+        {
+            str += `<div class="ddd">${prevLastDay- x +1}</div>`;
+            // console.log(str);
+            // mdays.innerHTML = str;
+        }
+        // console.log("hi");
+        for (let i = 1; i <= lastdate; i++) {
+            str += `<div class="d" id="d${i}${month}${year}" onclick="poppp()">${i}</div>`;
+            // console.log(id);
+            // console.log(str);
+        }
+        mdays.innerHTML = str;
+
+        for (let i = 1; i <= lastdate; i++) {
+            let idd = `d${i}${month}${year}`;
+            let mid = idd + "mm";
+            let aid = idd + "aa";
+            let nid = idd + "nn";
+            if ((localStorage.getItem(mid)) != null && (localStorage.getItem(aid)) != null && (localStorage.getItem(nid)) != null) {
+                let elemclass = document.getElementsByClassName("d");
+                // console.log(elemclass[i - 1]);
+                elemclass[i - 1].classList.add("full");
+            }
+            else if ((localStorage.getItem(mid)) != null || (localStorage.getItem(aid)) != null || (localStorage.getItem(nid)) != null) {
+                let elemclass = document.getElementsByClassName("d");
+                // console.log(elemclass[i - 1]);
+                elemclass[i - 1].classList.add("midd");
+            }
+        }
+
+        function update()
+        {
+        let day = date.getDay();
+        let year = date.getFullYear();
+        let mdays = document.querySelector('.mdays');
+        // date.setMonth(2);
+        let month = date.getMonth();
+        date.setDate(1);
+        // date.setMonth(9);
+        //  console.log(date.getMonth());
+        //  console.log(month);
+        // console.log(date.setMonth(10))
+        let prevLastDay= new Date(date.getFullYear(), date.getMonth(),0).getDate();
+        console.log(prevLastDay);
+        
+        let lastdate=new Date(date.getFullYear(),date.getMonth()+1,0).getDate();
+        console.log(lastdate);
+        
+        let firstDayIndex = date.getDay();
+        console.log(firstDayIndex);
+
+
+        const months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+        ];
+
+
+       
+        document.querySelector('.month h1').innerHTML = months[date.getMonth()]
+        document.querySelector('.month p').innerHTML = date.toDateString();
+
+        let str = "";
+        // let pstr="";
+        for(let x=firstDayIndex;x>0;x--)
+        {
+            str += `<div class="ddd">${prevLastDay- x +1}</div>`;
+            // console.log(str);
+            // mdays.innerHTML = str;
+        }
+        // console.log("hi");
+        for (let i = 1; i <= lastdate; i++) {
+            str += `<div class="d" id="d${i}${month}${year}" onclick="poppp()">${i}</div>`;
+            // console.log(id);
+            // console.log(str);
+        }
+        mdays.innerHTML = str;
+
+        for (let i = 1; i <= lastdate; i++) {
+            let idd = `d${i}${month}${year}`;
+            let mid = idd + "mm";
+            let aid = idd + "aa";
+            let nid = idd + "nn";
+            if ((localStorage.getItem(mid)) != null && (localStorage.getItem(aid)) != null && (localStorage.getItem(nid)) != null) {
+                let elemclass = document.getElementsByClassName("d");
+                // console.log(elemclass[i - 1]);
+                elemclass[i - 1].classList.add("full");
+            }
+            else if ((localStorage.getItem(mid)) != null || (localStorage.getItem(aid)) != null || (localStorage.getItem(nid)) != null) {
+                let elemclass = document.getElementsByClassName("d");
+                // console.log(elemclass[i - 1]);
+                elemclass[i - 1].classList.add("midd");
+            }
+        }
+       
+    }     
+
+        function cancell() {
+            //clear text....
+            let clearall = document.querySelector('.back');
+            let name = document.querySelectorAll('#m_name');
+            let input = document.querySelectorAll('#m_ta');
+            let namee = document.querySelectorAll('#a_name');
+            let inputt = document.querySelectorAll('#a_ta');
+            let nameee = document.querySelectorAll('#n_name');
+            let inputtt = document.querySelectorAll('#n_ta');
+            // clearall.addEventListener('click', () => {
+            input.forEach(input => input.value = '');
+            name.forEach(name => name.value = '');
+            inputt.forEach(input => input.value = '');
+            namee.forEach(name => name.value = '');
+            inputtt.forEach(input => input.value = '');
+            nameee.forEach(name => name.value = '');
+            // });
+
+            // cancel event....
+            document.querySelector(".popup").style.display = "none";
+            window.location.reload();
+
+        }
+        // function loadd()
+        // {
+        //     document.getElementById("back").click(); 
+        // }
+        function poppp() {
+            //popup event....
+            document.querySelector(".popup").style.display = "inline";
+            // console.log("OK");
+            let id = event.target.id;
+            // console.log(id);
+            document.querySelector('.wid').innerHTML = id;
+            let mmm = id + "mm";
+            let aaa = id + "aa";
+            let nnn = id + "nn";
+            document.getElementById('mm').innerText = JSON.parse(localStorage.getItem(mmm));
+            document.getElementById('aa').innerText = JSON.parse(localStorage.getItem(aaa));
+            document.getElementById('nn').innerText = JSON.parse(localStorage.getItem(nnn));
+        }
+
+
+        function add_mor() {
+            let nn = document.querySelector('.wid').innerHTML;
+            let n = nn + "mm"
+            // console.log(n+"mm");
+            let t = document.getElementById('m_ta').value;
+
+
+            let name = document.querySelectorAll('#m_name');
+            let input = document.querySelectorAll('#m_ta');
+
+            // console.log(n, t);
+            if (n && t) {
+                console.log("adding morning");
+                let JsonitemsArray = [];
+                JsonitemsArray.push([t]);
+                localStorage.setItem(`${n}`, JSON.stringify(JsonitemsArray));
+                console.log(localStorage.getItem(`${n}`));
+                document.getElementById('mm').innerText = JSON.parse(localStorage.getItem(`${n}`));
+            }
+
+            input.forEach(input => input.value = '');
+            name.forEach(name => name.value = '');
+
+        }
+
+        function add_after() {
+            let nn = document.querySelector('.wid').innerHTML;
+            let n = nn + "aa"
+            // console.log(n+"aa");
+            let t = document.getElementById('a_ta').value;
+
+            let namee = document.querySelectorAll('#a_name');
+            let inputt = document.querySelectorAll('#a_ta');
+
+            // console.log(n,t);
+            if (n && t) {
+                console.log("adding afternoon");
+                let JsonitemsArray = [];
+                JsonitemsArray.push([t]);
+                localStorage.setItem(`${n}`, JSON.stringify(JsonitemsArray));
+                console.log(localStorage.getItem(`${n}`));
+                document.getElementById('aa').innerText = JSON.parse(localStorage.getItem(`${n}`));
+            }
+
+
+            inputt.forEach(input => input.value = '');
+            namee.forEach(name => name.value = '');
+
+        }
+
+        function add_night() {
+            let nn = document.querySelector('.wid').innerHTML;
+            let n = nn + "nn"
+            // console.log(n+"nn");
+            // let n = document.getElementById('n_name').value;
+            let t = document.getElementById('n_ta').value;
+
+            let nameee = document.querySelectorAll('#n_name');
+            let inputtt = document.querySelectorAll('#n_ta');
+
+
+            // console.log(n, t);
+            if (n && t) {
+                console.log("adding night");
+                let JsonitemsArray = [];
+                JsonitemsArray.push([t]);
+                localStorage.setItem(`${n}`, JSON.stringify(JsonitemsArray));
+                console.log(localStorage.getItem(`${n}`));
+                document.getElementById('nn').innerText = JSON.parse(localStorage.getItem(`${n}`));
+            }
+
+            inputtt.forEach(input => input.value = '');
+            nameee.forEach(name => name.value = '');
+        }
+
+
+
+        function can() {
+            let can = document.querySelector('#can');
+            let name = document.querySelectorAll('#m_name');
+            let input = document.querySelectorAll('#m_ta');
+            let namee = document.querySelectorAll('#a_name');
+            let inputt = document.querySelectorAll('#a_ta');
+            let nameee = document.querySelectorAll('#n_name');
+            let inputtt = document.querySelectorAll('#n_ta');
+            // can.addEventListener('click', () => {
+            input.forEach(input => input.value = '');
+            name.forEach(name => name.value = '');
+            inputt.forEach(input => input.value = '');
+            namee.forEach(name => name.value = '');
+            inputtt.forEach(input => input.value = '');
+            nameee.forEach(name => name.value = '');
+            // });
+        }
+
+        function delete_m() {
+            if (confirm("Do you wnat to delete morning list")) {
+                // console.log("delete")
+                let nn = document.querySelector('.wid').innerHTML;
+                let n = nn + "mm"
+                // console.log(n);
+                localStorage.removeItem(n);
+                document.getElementById('mm').innerText = null;
+
+            }
+
+        }
+        function delete_a() {
+            if (confirm("Do you wnat to delete afternoon list")) {
+                let nn = document.querySelector('.wid').innerHTML;
+                let n = nn + "aa"
+                // console.log(n);
+                localStorage.removeItem(n);
+                document.getElementById('aa').innerText = null;
+            }
+        }
+        function delete_n() {
+            if (confirm("Do you wnat to delete night list")) {
+                let nn = document.querySelector('.wid').innerHTML;
+                let n = nn + "nn"
+                // console.log(n);
+                localStorage.removeItem(n);
+                document.getElementById('nn').innerText = null;
+            }
+        }
+        // function left()
+        // {
+        //     console.log("left")
+        //     // month--;
+        //     date.setMonth(date.getMonth()-1);
+        //     console.log(month);
+        // }
+
+        // function right()
+        // {
+        //     console.log("right")
+        //     date.setMonth(date.getMonth()+1);
+        //     console.log(month);
+        // }
+
+        document.querySelector('#left').addEventListener("click",()=>
+        {
+            date.setMonth(date.getMonth()-1);
+            // console.log("left")
+            // console.log(date.getMonth()-1)
+            update();
+
+            // renderCal();
+            // window.location.reload();
+            
+        })
+        document.querySelector('#right').addEventListener("click",()=>
+        {
+            date.setMonth(date.getMonth()+1);
+            // console.log("right")
+            // console.log(date.getMonth()+1)
+            update();
+
+            // renderCal();
+            // window.location.reload();
+        })
+    </script>
+</body>
+
+</html>
